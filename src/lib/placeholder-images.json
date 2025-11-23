@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "recharge-offer-gift",
+      "description": "A festive gift box representing a free recharge offer.",
+      "imageUrl": "https://images.unsplash.com/photo-1708550137442-c0e65d4fea74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2lmdCUyMGNlbGVicmF0aW9ufGVufDB8fHx8MTc2Mzg4NzgxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gift celebration"
+    }
+  ]
 }
