@@ -20,7 +20,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { checkForFraud } from './actions';
 import { useToast } from '@/hooks/use-toast';
@@ -34,12 +33,11 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 
-const REFERRAL_GOAL = 3;
+const REFERRAL_GOAL = 5;
 
 export default function RechargeOffer() {
   const [referrals, setReferrals] = useState(0);
   const [referralLink, setReferralLink] = useState('');
-  const [isCopied, setIsCopied] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessDialog, setShowSuccessDialog] = useState(false);
   const { toast } = useToast();
@@ -53,20 +51,45 @@ export default function RechargeOffer() {
     );
   }, []);
 
-  const handleShare = () => {
-    if (referrals < REFERRAL_GOAL) {
-      setReferrals(referrals + 1);
-    }
-  };
+  const handleShare = async () => {
+    const shareData = {
+      title: 'Mukesh Ambani New Year Gift!',
+      text: `To celebrate 2024, Mukesh Ambani is giving a FREE recharge to everyone! I just got mine, you can too!`,
+      url: referralLink,
+    };
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(referralLink);
-    setIsCopied(true);
-    toast({
-      title: 'Copied to clipboard!',
-      description: 'Now share the link with your friends.',
-    });
-    setTimeout(() => setIsCopied(false), 2000);
+    try {
+      if (navigator.share && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
+        toast({
+          title: 'Shared successfully!',
+          description: 'Thanks for sharing the offer.',
+        });
+      } else {
+        // Fallback for browsers that do not support Web Share API
+        await navigator.clipboard.writeText(shareData.url);
+        toast({
+          title: 'Copied to clipboard!',
+          description:
+            'Share this link with your friends to get your recharge.',
+        });
+      }
+      if (referrals < REFERRAL_GOAL) {
+        setReferrals(referrals + 1);
+      }
+    } catch (error) {
+      console.error('Error sharing:', error);
+      // Fallback for when sharing fails
+      await navigator.clipboard.writeText(shareData.url);
+      toast({
+        variant: 'destructive',
+        title: 'Sharing failed, link copied instead.',
+        description: 'Please paste the link to share with your friends.',
+      });
+      if (referrals < REFERRAL_GOAL) {
+        setReferrals(referrals + 1);
+      }
+    }
   };
 
   const handleClaimReward = async () => {
@@ -94,13 +117,15 @@ export default function RechargeOffer() {
         <CardHeader className="p-6 pb-2 text-center">
           <CardTitle className="text-2xl font-bold flex items-center justify-center gap-2">
             <Zap className="text-primary animate-pulse" />
-            LIMITED TIME: Free New Year Recharge!
+            🎉 Mega New Year Bonanza! 🎉
           </CardTitle>
           <CardDescription className="text-md mt-2">
-            To celebrate 2024, Mukesh Ambani is giving a{' '}
-            <strong>FREE recharge</strong> to everyone! Just share this with{' '}
-            <strong>{REFERRAL_GOAL} friends</strong> to claim yours. Don't miss
-            out!
+            Celebrate 2024 with a{' '}
+            <strong>GUARANTEED FREE recharge from Mukesh Ambani!</strong> Simply
+            share this amazing offer with{' '}
+            <strong>{REFERRAL_GOAL} friends or groups</strong> to instantly claim
+            your reward. This is a limited-time festive offer, don't let it
+            slip away!
           </CardDescription>
         </CardHeader>
         <CardContent className="p-6 pt-4">
@@ -121,37 +146,11 @@ export default function RechargeOffer() {
               <Progress value={progressValue} className="h-3" />
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-foreground/80">
-                Your Unique Referral Link
-              </label>
-              <div className="flex items-center gap-2">
-                <Input
-                  readOnly
-                  value={referralLink}
-                  placeholder="Generating link..."
-                  className="bg-muted/50"
-                  aria-label="Referral Link"
-                />
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={handleCopyLink}
-                  aria-label="Copy link"
-                >
-                  {isCopied ? (
-                    <Check className="h-4 w-4 text-primary" />
-                  ) : (
-                    <Copy className="h-4 w-4" />
-                  )}
-                </Button>
-              </div>
-            </div>
-
             <div className="flex items-center gap-2 text-sm text-muted-foreground p-2 bg-muted/50 rounded-md">
               <Star className="h-4 w-4 text-primary" />
               <span>
-                1000s of users have already claimed their free recharge!
+                Hurry! Thousands of users are claiming their free recharge every
+                hour!
               </span>
             </div>
           </div>
@@ -167,12 +166,12 @@ export default function RechargeOffer() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Verifying...
+                  Verifying Your Referrals...
                 </>
               ) : (
                 <>
                   <Gift className="mr-2 h-5 w-5" />
-                  Claim Your FREE Recharge!
+                  Claim Your FREE Recharge Now!
                 </>
               )}
             </Button>
@@ -183,7 +182,7 @@ export default function RechargeOffer() {
               size="lg"
             >
               <Share2 className="mr-2 h-5 w-5" />
-              Share and Get Free Recharge
+              Share on WhatsApp & Claim
             </Button>
           )}
         </CardFooter>
@@ -195,12 +194,12 @@ export default function RechargeOffer() {
               <PartyPopper className="h-6 w-6 text-primary" />
             </div>
             <AlertDialogTitle className="text-center text-2xl">
-              Congratulations! You did it!
+              Congratulations! You've Unlocked Your Gift!
             </AlertDialogTitle>
             <AlertDialogDescription className="text-center">
-              You've successfully referred {REFERRAL_GOAL} friends. Your special
-              New Year recharge from Mukesh Ambani is on its way. Enjoy the gift
-              and Happy New Year!
+              You've successfully shared with {REFERRAL_GOAL} friends. Your special
+              New Year recharge from Mukesh Ambani is being processed and will be
+              credited shortly. Enjoy the gift and a very Happy New Year!
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
