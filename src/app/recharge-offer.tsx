@@ -52,43 +52,16 @@ export default function RechargeOffer() {
   }, []);
 
   const handleShare = async () => {
-    const shareData = {
-      title: 'Mukesh Ambani New Year Gift!',
-      text: `To celebrate 2024, Mukesh Ambani is giving a FREE recharge to everyone! I just got mine, you can too!`,
-      url: referralLink,
-    };
+    const text = `🎉 Mega New Year Bonanza! 🎉\nCelebrate 2024 with a GUARANTEED FREE recharge from Mukesh Ambani! Simply share this amazing offer with 5 friends or groups to instantly claim your reward. This is a limited-time festive offer, don't let it slip away!\n\n${referralLink}`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedText}`;
 
-    try {
-      if (navigator.share && navigator.canShare(shareData)) {
-        await navigator.share(shareData);
-        toast({
-          title: 'Shared successfully!',
-          description: 'Thanks for sharing the offer.',
-        });
-      } else {
-        // Fallback for browsers that do not support Web Share API
-        await navigator.clipboard.writeText(shareData.url);
-        toast({
-          title: 'Copied to clipboard!',
-          description:
-            'Share this link with your friends to get your recharge.',
-        });
-      }
-      if (referrals < REFERRAL_GOAL) {
-        setReferrals(referrals + 1);
-      }
-    } catch (error) {
-      console.error('Error sharing:', error);
-      // Fallback for when sharing fails
-      await navigator.clipboard.writeText(shareData.url);
-      toast({
-        variant: 'destructive',
-        title: 'Sharing failed, link copied instead.',
-        description: 'Please paste the link to share with your friends.',
-      });
-      if (referrals < REFERRAL_GOAL) {
-        setReferrals(referrals + 1);
-      }
+    // Attempt to open WhatsApp directly
+    window.open(whatsappUrl, '_blank');
+    
+    // Assume share was successful and update referral count
+    if (referrals < REFERRAL_GOAL) {
+      setReferrals(referrals + 1);
     }
   };
 
