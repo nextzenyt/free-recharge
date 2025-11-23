@@ -5,6 +5,42 @@
       "description": "A festive gift box representing a free recharge offer.",
       "imageUrl": "https://images.unsplash.com/photo-1708550137442-c0e65d4fea74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z2lmdCUyMGNlbGVicmF0aW9ufGVufDB8fHx8MTc2Mzg4NzgxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "gift celebration"
+    },
+    {
+      "id": "avatar-rohan",
+      "description": "Avatar for Rohan",
+      "imageUrl": "https://images.unsplash.com/photo-1692197393247-c76e1bd8f29e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzODcwODg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "avatar-priya",
+      "description": "Avatar for Priya",
+      "imageUrl": "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmVtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzODc3NzU2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female portrait"
+    },
+    {
+      "id": "avatar-amit",
+      "description": "Avatar for Amit",
+      "imageUrl": "https://images.unsplash.com/flagged/photo-1595514191830-3e96a518989b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzODcwODg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "avatar-sunita",
+      "description": "Avatar for Sunita",
+      "imageUrl": "https://images.unsplash.com/photo-1524255684952-d7185b509571?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM4Nzc3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female portrait"
+    },
+    {
+      "id": "avatar-vikram",
+      "description": "Avatar for Vikram",
+      "imageUrl": "https://images.unsplash.com/photo-1715412507413-c7416b47cacb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYzODcwODg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male portrait"
+    },
+    {
+      "id": "avatar-anjali",
+      "description": "Avatar for Anjali",
+      "imageUrl": "https://images.unsplash.com/photo-1634149134165-6d679d80a800?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmZW1hbGUlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM4Nzc3NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female portrait"
     }
   ]
 }

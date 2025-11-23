@@ -1,4 +1,5 @@
 import RechargeOffer from './recharge-offer';
+import FakeReviews from './fake-reviews';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
           </p>
         </header>
         <RechargeOffer />
+        <FakeReviews />
         <div id="container-7141edc3813cce93bfe6b52773a1fc95" className="mt-8"></div>
         <footer className="text-center mt-8 text-sm text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} RechargeRelay. All rights reserved.</p>
