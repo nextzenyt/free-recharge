@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import {
   Check,
   Copy,
@@ -21,7 +20,6 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { checkForFraud } from './actions';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -52,10 +50,6 @@ export default function RechargeOffer() {
         .substring(2, 9)}`
     );
   }, []);
-
-  const offerImage = PlaceHolderImages.find(
-    (img) => img.id === 'recharge-offer-gift'
-  );
 
   const handleShare = () => {
     if (referrals < REFERRAL_GOAL) {
@@ -95,28 +89,14 @@ export default function RechargeOffer() {
   return (
     <>
       <Card className="overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl">
-        <CardHeader className="p-0">
-          {offerImage && (
-            <div className="aspect-video overflow-hidden">
-              <Image
-                src={offerImage.imageUrl}
-                alt={offerImage.description}
-                data-ai-hint={offerImage.imageHint}
-                width={600}
-                height={400}
-                className="object-cover transition-transform duration-300 hover:scale-105"
-              />
-            </div>
-          )}
-          <div className="p-6 pb-2">
-            <CardTitle className="text-2xl font-bold">
-              New Year Free Recharge Offer!
-            </CardTitle>
-            <CardDescription className="text-md mt-1">
-              Share with <strong>{REFERRAL_GOAL} friends</strong> & get a free
-              recharge!
-            </CardDescription>
-          </div>
+        <CardHeader className="p-6 pb-2">
+          <CardTitle className="text-2xl font-bold">
+            New Year Free Recharge Offer!
+          </CardTitle>
+          <CardDescription className="text-md mt-1">
+            Share with <strong>{REFERRAL_GOAL} friends</strong> & get a free
+            recharge!
+          </CardDescription>
         </CardHeader>
         <CardContent className="p-6 pt-2">
           <div className="space-y-4">
