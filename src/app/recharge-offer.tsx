@@ -104,7 +104,7 @@ export default function RechargeOffer() {
         description: result.fraudulentReason,
       });
     } else {
-      setShowSuccessDialog(true);
+      window.location.href = 'https://www.effectivegatecpm.com/junbhmwqq?key=e52b9f85bae2f594c627fa88d6cddf86';
     }
   };
 
