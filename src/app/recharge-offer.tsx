@@ -52,7 +52,7 @@ export default function RechargeOffer() {
   }, []);
 
   const handleShare = async () => {
-    const text = `🎉 Mega New Year Bonanza! 🎉\nCelebrate 2024 with a GUARANTEED FREE recharge from Mukesh Ambani! Simply share this amazing offer with 5 friends or groups to instantly claim your reward. This is a limited-time festive offer, don't let it slip away!\n\n${referralLink}`;
+    const text = `🎉 Mega New Year Bonanza! 🎉\nCelebrate 2026 with a GUARANTEED FREE recharge from Mukesh Ambani! Simply share this amazing offer with 5 friends or groups to instantly claim your reward. This is a limited-time festive offer, don't let it slip away!\n\n${referralLink}`;
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedText}`;
 
@@ -93,7 +93,7 @@ export default function RechargeOffer() {
             🎉 Mega New Year Bonanza! 🎉
           </CardTitle>
           <CardDescription className="text-md mt-2">
-            Celebrate 2024 with a{' '}
+            Celebrate 2026 with a{' '}
             <strong>GUARANTEED FREE recharge from Mukesh Ambani!</strong> Simply
             share this amazing offer with{' '}
             <strong>{REFERRAL_GOAL} friends or groups</strong> to instantly claim
