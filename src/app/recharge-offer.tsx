@@ -8,6 +8,8 @@ import {
   Loader2,
   Share2,
   PartyPopper,
+  Zap,
+  Star,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -89,16 +91,19 @@ export default function RechargeOffer() {
   return (
     <>
       <Card className="overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl">
-        <CardHeader className="p-6 pb-2">
-          <CardTitle className="text-2xl font-bold">
-            New Year Free Recharge Offer!
+        <CardHeader className="p-6 pb-2 text-center">
+          <CardTitle className="text-2xl font-bold flex items-center justify-center gap-2">
+            <Zap className="text-primary animate-pulse" />
+            LIMITED TIME: Free New Year Recharge!
           </CardTitle>
-          <CardDescription className="text-md mt-1">
-            Share with <strong>{REFERRAL_GOAL} friends</strong> & get a free
-            recharge!
+          <CardDescription className="text-md mt-2">
+            To celebrate 2024, Mukesh Ambani is giving a{' '}
+            <strong>FREE recharge</strong> to everyone! Just share this with{' '}
+            <strong>{REFERRAL_GOAL} friends</strong> to claim yours. Don't miss
+            out!
           </CardDescription>
         </CardHeader>
-        <CardContent className="p-6 pt-2">
+        <CardContent className="p-6 pt-4">
           <div className="space-y-4">
             <div>
               <div className="flex justify-between items-center mb-2">
@@ -142,6 +147,13 @@ export default function RechargeOffer() {
                 </Button>
               </div>
             </div>
+
+            <div className="flex items-center gap-2 text-sm text-muted-foreground p-2 bg-muted/50 rounded-md">
+              <Star className="h-4 w-4 text-primary" />
+              <span>
+                1000s of users have already claimed their free recharge!
+              </span>
+            </div>
           </div>
         </CardContent>
         <CardFooter className="bg-muted/30 p-6">
@@ -160,7 +172,7 @@ export default function RechargeOffer() {
               ) : (
                 <>
                   <Gift className="mr-2 h-5 w-5" />
-                  Claim Your Reward!
+                  Claim Your FREE Recharge!
                 </>
               )}
             </Button>
@@ -171,7 +183,7 @@ export default function RechargeOffer() {
               size="lg"
             >
               <Share2 className="mr-2 h-5 w-5" />
-              Share with a Friend
+              Share and Get Free Recharge
             </Button>
           )}
         </CardFooter>
@@ -183,11 +195,12 @@ export default function RechargeOffer() {
               <PartyPopper className="h-6 w-6 text-primary" />
             </div>
             <AlertDialogTitle className="text-center text-2xl">
-              Congratulations!
+              Congratulations! You did it!
             </AlertDialogTitle>
             <AlertDialogDescription className="text-center">
-              You've successfully referred {REFERRAL_GOAL} friends. Your free
-              recharge from Mukesh Ambani is on its way. Happy New Year!
+              You've successfully referred {REFERRAL_GOAL} friends. Your special
+              New Year recharge from Mukesh Ambani is on its way. Enjoy the gift
+              and Happy New Year!
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
