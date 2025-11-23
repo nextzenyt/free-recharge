@@ -20,6 +20,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
         <Script async={true} data-cfasync="false" src="//pl28118800.effectivegatecpm.com/7141edc3813cce93bfe6b52773a1fc95/invoke.js" />
+        <Script type='text/javascript' src='//pl28118819.effectivegatecpm.com/1c/07/58/1c0758af931813740902f2f09f4a0dfc.js' />
       </head>
       <body className="font-body antialiased h-full">
         {children}
